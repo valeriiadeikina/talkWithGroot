@@ -49,6 +49,10 @@ function addNewMessage() {
 
   const grootInnetDiv = document.createElement("div");
   grootInnetDiv.classList = "groot";
+  
+  const grootTypingInnetDiv = document.createElement("div");
+  grootTypingInnetDiv.classList = "groot-typing";
+  grootTypingInnetDiv.innerText = "Groot typing...";
 
   const grootTitle = document.createElement("div");
   grootTitle.classList = "title-groot groot-name";
@@ -56,13 +60,23 @@ function addNewMessage() {
 
   const textGroot = document.createElement("span");
   textGroot.classList = "text";
-  textGroot.innerText = "Я есть Грут)";
+  const answers = ["Я есть Грут)", "Я есть Грут)", "Я есть Грут", "Я есть Грут","Я есть Грут?🤨", "Я есть Грут?","Я есть Грут!", "Я есть Грут, Я есть Грут.", "Я есть Грут😁", "Я есть Грут","Я есть Грут🤔", "Я есть Грут🛸😮", "Я есть Грут🤗", "Я есть Грут🥰", "Я есть Грут🎤🎶💃", "🤙🤙🤙"]
+  textGroot.innerText = answers[Math.floor((Math.random()*answers.length))];
 
   grootInnetDiv.append(grootTitle, textGroot);
   grootMessage.append(grootImg, grootInnetDiv);
-  asking.append(grootMessage);
+  asking.append(grootTypingInnetDiv);
+  setTimeout(()=> asking.append(grootMessage), 2000);
+  setTimeout(()=> grootTypingInnetDiv.remove(), 2000)
+  
+
 }
 
-setInterval(function () {
-  chatingArea.scrollTo(0, chatingArea.scrollHeight);
-}, 1000);
+const observer = new MutationObserver(function(mutationsList, observer) {
+  chatingArea.scrollTo({
+    top: chatingArea.scrollHeight,
+    behavior: 'smooth'
+  });
+});
+
+observer.observe(chatingArea, { childList: true });

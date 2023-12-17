@@ -164,6 +164,22 @@ body {
   padding-bottom: 10px;
 }
 
+.groot-typing {
+  padding: 2px 15px;
+  margin: 5px;
+  opacity: 0;
+  animation: show-and-hide 2s infinite;
+  animation-delay: 300ms;
+}
+
+@keyframes show-and-hide {
+  0%, 25% {
+    opacity: 0;
+  }
+  50%, 100% {
+    opacity: 1;
+  }
+}
 .message-groot {
   transition: 1s;
   animation: show 3s 1;
@@ -174,13 +190,15 @@ body {
 }
 
 .new-message-groot {
-  transition: 0.5s;
-  animation: show 3s 1;
+  transition: 0.3s;
+  animation: show 1s 1;
   animation-fill-mode: forwards;
-  animation-delay: 1s;
+  animation-delay: 300ms;
   opacity: 0;
   align-self: flex-start;
 }
+
+
 
 @keyframes show {
   0% {
@@ -188,6 +206,7 @@ body {
   }
   100% {
     opacity: 1;
+    display: block;
   }
 }
 
@@ -227,11 +246,20 @@ body {
 
 .message-user {
   transition: 2s;
-  animation: show 1s 1;
+  animation: show 1s;
   animation-fill-mode: forwards;
   opacity: 0;
   align-self: flex-end;
 }
+
+/* .message-user {
+  transition: 0.5s;
+  animation: show 3s 1;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  opacity: 0;
+  align-self: flex-start;
+} */
 
 @keyframes show {
   0% {
