@@ -169,7 +169,7 @@ body {
   margin: 5px;
   opacity: 0;
   animation: show-and-hide 2s infinite;
-  animation-delay: 300ms;
+  /* animation-delay: 300ms; */
 }
 
 @keyframes show-and-hide {
